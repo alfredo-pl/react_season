@@ -19,13 +19,14 @@ class App extends React.Component{
         );
     }
 
-    /*  
+    /* 
     componentDidUpdate(){
         console.log("My component was just updated - it rerendered!");
     } */
-    //React says we have to define render
-    render (){
-     
+
+
+    renderContent(){
+        
         /*  {this.state.errorMessage && !this.state.lat ? "Error :" + this.state.errorMessage : "Latitud : "+this.state.lat } */
            
         if (this.state.errorMessage && !this.state.lat) {
@@ -36,7 +37,17 @@ class App extends React.Component{
             return <SeasonDisplay lat={this.state.lat}/>;
         }
         
-        return <Spinner message="Please accept location request"/>;        
+        return <Spinner message="Please accept location request"/>;  
+    }
+
+
+    //React says we have to define render
+    render (){
+        return (
+            <div className="container">
+               {this.renderContent()}
+           </div>
+        )   
     } 
 }
  
